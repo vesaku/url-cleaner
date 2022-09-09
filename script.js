@@ -1,22 +1,28 @@
-let convert = document.getElementById("convert")
-convert.addEventListener("click", cleanText);
+window.onload = function() {
+    main()
+};
 
-let input = document.getElementById("input")
-let output = document.getElementById("output")
+function main() {
+    let convert = document.getElementById("convert")
+    convert.addEventListener("click", cleanText);
 
-let tmpContainer = document.getElementById("tmp-container")
+    let input = document.getElementById("input")
+    let output = document.getElementById("output")
 
-function extractResult(link, result) {
-    return `${result} ${link.innerHTML}\n`;
-}
+    let tmpContainer = document.getElementById("tmp-container")
 
-function cleanText(){
-    tmpContainer.innerHTML = input.value
+    function extractResult(link, result) {
+        return `${result} ${link.innerHTML}\n`;
+    }
 
-    let result = ''
+    function cleanText(){
+        tmpContainer.innerHTML = input.value
 
-    let links = document.querySelectorAll("#tmp-container a")
-    links.prototype.forEach( link => extractResult(link, result))
+        let result = ''
 
-    output.innerText = result
+        let links = document.querySelectorAll("#tmp-container a")
+        links.prototype.forEach( link => extractResult(link, result))
+
+        output.innerText = result
+    }
 }
