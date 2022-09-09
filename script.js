@@ -11,18 +11,14 @@ function main() {
 
     let tmpContainer = document.getElementById("tmp-container")
 
-    function updateResult(result, link) {
-        return `${result} ${link.innerHTML}\n`;
+    function updateResult(link) {
+        output.innerText = `${output.innerText} ${link.innerHTML}\n`;
     }
 
     function cleanText(){
         tmpContainer.innerHTML = input.value
 
-        let result = ''
-
         let links = document.querySelectorAll("#tmp-container a")
-        links.forEach( link => updateResult(result, link))
-
-        output.innerText = result
+        links.forEach( link => updateResult(link))
     }
 }
