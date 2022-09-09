@@ -15,12 +15,16 @@ window.onload = () => {
         console.log(contents)
 
         output.innerText = contents.reduce((previousValue, currentValue) => {
-            return `${previousValue} ${currentValue}\n`
+            return `${previousValue}\n${currentValue}`
         })
     }
 
     document.getElementById("convert").addEventListener("click", reset)
     function reset(){
+        if (!window.confirm("Are you sure?")) {
+            return false
+        }
+
         input.innerText = ''
         output.innerText = ''
         tmpContainer.innerText = ''
