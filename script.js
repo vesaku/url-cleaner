@@ -19,7 +19,7 @@ window.onload = () => {
         })
     }
 
-    document.getElementById("convert").addEventListener("click", reset)
+    document.getElementById("reset").addEventListener("click", reset)
     function reset(){
         if (!window.confirm("Are you sure?")) {
             return false
