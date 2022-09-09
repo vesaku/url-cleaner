@@ -3,9 +3,7 @@ window.onload = () => {
     let output = document.getElementById("output")
     let tmpContainer = document.getElementById("tmp-container")
 
-    let convert = document.getElementById("convert")
-    convert.addEventListener("click", cleanText)
-
+    document.getElementById("convert").addEventListener("click", cleanText)
     function cleanText(){
         tmpContainer.innerHTML = input.value
 
@@ -19,5 +17,12 @@ window.onload = () => {
         output.innerText = contents.reduce((previousValue, currentValue) => {
             return `${previousValue} ${currentValue}\n`
         })
+    }
+
+    document.getElementById("convert").addEventListener("click", reset)
+    function reset(){
+        input.innerText = ''
+        output.innerText = ''
+        tmpContainer.innerText = ''
     }
 }
