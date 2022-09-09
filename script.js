@@ -21,7 +21,7 @@ function main() {
         let result = ''
 
         let links = document.querySelectorAll("#tmp-container a")
-        links.prototype.forEach( link => result = updateResult(result, link))
+        links.forEach( link => result = updateResult(result, link))
 
         output.innerText = result
     }
