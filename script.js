@@ -14,7 +14,7 @@ window.onload = () => {
 
         console.log(contents)
 
-        output.innerText = contents.reduce((previousValue, currentValue) => {
+        output.value = contents.reduce((previousValue, currentValue) => {
             return `${previousValue}\n${currentValue}`
         })
     }
@@ -25,8 +25,8 @@ window.onload = () => {
             return false
         }
 
-        input.innerText = ''
-        output.innerText = ''
-        tmpContainer.innerText = ''
+        input.value = ''
+        output.value = ''
+        tmpContainer.value = ''
     }
 }
