@@ -11,7 +11,7 @@ function main() {
 
     let tmpContainer = document.getElementById("tmp-container")
 
-    function extractResult(link, result) {
+    function updateResult(result, link) {
         return `${result} ${link.innerHTML}\n`;
     }
 
@@ -21,7 +21,7 @@ function main() {
         let result = ''
 
         let links = document.querySelectorAll("#tmp-container a")
-        links.prototype.forEach( link => extractResult(link, result))
+        links.prototype.forEach( link => result = updateResult(result, link))
 
         output.innerText = result
     }
