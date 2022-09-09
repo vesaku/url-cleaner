@@ -17,6 +17,8 @@ window.onload = () => {
         output.value = contents.reduce((previousValue, currentValue) => {
             return `${previousValue}\n${currentValue}`
         })
+
+        tmpContainer.innerHTML = ''
     }
 
     document.getElementById("reset").addEventListener("click", reset)
@@ -27,6 +29,6 @@ window.onload = () => {
 
         input.value = ''
         output.value = ''
-        tmpContainer.value = ''
+        tmpContainer.innerHTML = ''
     }
 }
