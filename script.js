@@ -1,24 +1,21 @@
-window.onload = function() {
-    main()
-};
-
-function main() {
-    let convert = document.getElementById("convert")
-    convert.addEventListener("click", cleanText);
-
+window.onload = () => {
     let input = document.getElementById("input")
     let output = document.getElementById("output")
-
     let tmpContainer = document.getElementById("tmp-container")
 
-    function updateResult(link) {
-        output.innerText = `${output.innerText} ${link.innerHTML}\n`;
-    }
+    let convert = document.getElementById("convert")
+    convert.addEventListener("click", cleanText)
 
     function cleanText(){
         tmpContainer.innerHTML = input.value
 
         let links = document.querySelectorAll("#tmp-container a")
-        links.forEach( link => updateResult(link))
+        let contents = Array.from(links).map(link => {
+            return link.innerHTML
+        })
+
+        output.innerText = contents.reduce((previousValue, currentValue) => {
+            return `${previousValue} ${currentValue}\n`
+        })
     }
 }
