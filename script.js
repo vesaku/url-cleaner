@@ -14,6 +14,8 @@ window.onload = () => {
             return link.innerHTML
         })
 
+        console.log(contents)
+
         output.innerText = contents.reduce((previousValue, currentValue) => {
             return `${previousValue} ${currentValue}\n`
         })
