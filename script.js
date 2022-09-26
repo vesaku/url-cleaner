@@ -1,34 +1,45 @@
 window.onload = () => {
-    let input = document.getElementById("input")
-    let output = document.getElementById("output")
-    let tmpContainer = document.getElementById("tmp-container")
+    const input = document.getElementById("input")
+    const output = document.getElementById("output")
+    const tmpContainer = document.getElementById("tmp-container")
 
-    document.getElementById("convert").addEventListener("click", cleanText)
-    function cleanText(){
+    let keyTimer = null
+
+    input.addEventListener("keyup", function () {
+        clearTimeout(keyTimer);
+        keyTimer = setTimeout(convertText, 300)
+    })
+
+    function emptyContainers() {
+        tmpContainer.innerHTML = ''
+        output.placeholder = ''
+        output.value = ''
+    }
+
+    function convertText() {
+        if (input.value === '') {
+            emptyContainers()
+            return
+        }
+
         tmpContainer.innerHTML = input.value
 
-        let links = document.querySelectorAll("#tmp-container a")
-        let contents = Array.from(links).map(link => {
+        const links = document.querySelectorAll("#tmp-container a")
+        const contents = Array.from(links).map(link => {
             return link.innerHTML
         })
 
-        console.log(contents)
+        if (contents.length < 1) {
+            emptyContainers()
+            output.placeholder = 'Изначальный текст в неверном формате.'
+            return
+        }
 
+        output.placeholder = ''
         output.value = contents.reduce((previousValue, currentValue) => {
             return `${previousValue}\n${currentValue}`
         })
 
-        tmpContainer.innerHTML = ''
-    }
-
-    document.getElementById("reset").addEventListener("click", reset)
-    function reset(){
-        if (!window.confirm("Are you sure?")) {
-            return false
-        }
-
-        input.value = ''
-        output.value = ''
         tmpContainer.innerHTML = ''
     }
 }

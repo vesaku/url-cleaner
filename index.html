@@ -2,25 +2,29 @@
 <html lang="en">
 <head>
     <title>URL cleaner</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
-<h1>URL cleaner</h1>
 
-<div style="margin-bottom: 1em;">
-    <label for="input" style="display: block">Input</label>
-    <textarea id="input" name="input" rows="25" cols="100"></textarea>
+<div class="container">
+    <h1>URL cleaner</h1>
+
+    <form class="row g-3">
+        <div class="col-md-6">
+            <label for="input" class="form-label">Изначальный текст</label>
+            <textarea class="form-control" id="input" rows="30"></textarea>
+        </div>
+        <div class="col-md-6">
+            <label for="output" class="form-label">Очищенный результат</label>
+            <textarea class="form-control" id="output" rows="30"></textarea>
+        </div>
+    </form>
 </div>
 
-<div style="margin-bottom: 1em;">
-    <label for="output" style="display: block">Output</label>
-    <textarea id="output" name="output" rows="25" cols="100"></textarea>
-</div>
-
-<button id="reset" style="margin-right: 1em;">Reset</button>
-<button id="convert">Convert</button>
-
-<div id="tmp-container" style="display: none"></div>
+<div id="tmp-container" class="d-none"></div>
 </body>
 </html>
