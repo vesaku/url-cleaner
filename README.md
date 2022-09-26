@@ -1,3 +1,3 @@
 # URL cleaner
 
-Clears links from surrounding them elements.
+This project clears links from surrounding them elements.
